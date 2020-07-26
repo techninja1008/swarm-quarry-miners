@@ -80,6 +80,9 @@ end
 
 -- refuels the turtle to a specified target
 function refuel(target)
+	if turtle.getFuelLevel() == "unlimited" then
+		return 10000
+	end
 	for i = 1, 16 do
 		turtle.select(i)
 		if turtle.refuel(0) then
