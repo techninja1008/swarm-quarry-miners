@@ -121,7 +121,7 @@ function canReach(x, y, z)
 	if not y then y = pos.y end
 	if not z then z = pos.z end
 	local fuelNeeded = math.abs(pos.x - x) + math.abs(pos.y - y) + math.abs(pos.z - z)
-	if turtle.getFuelLevel() < fuelNeeded then
+	if turtle.getFuelLevel() ~= "unlimited" and turtle.getFuelLevel() < fuelNeeded then
 		return false, fuelNeeded
 	end
 	return true, fuelNeeded
