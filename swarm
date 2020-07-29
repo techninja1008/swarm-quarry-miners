@@ -111,12 +111,7 @@ local function dropoff(all)
 	for i = 1, 16 do
 		if turtle.getItemDetail(i) and (turtle.getItemDetail(i).name ~= "minecraft:bucket" or all) then
 			turtle.select(i)
-			-- put fuel in fuel chest if possible
-			if turtle.refuel(0) then
-				if not turtle.dropUp(64) then turtle.drop(64) end
-			else
-				turtle.drop(64)
-			end
+			turtle.drop(64)
 		end
 	end
 end
@@ -194,9 +189,6 @@ if config.get("host") and config.get("dropoff") and config.get("swarmname") then
 				print("Going to shaft location")
 				local pos = go.getPos()
 				local dropoff = config.get("dropoff")
-				if pos.x == dropoff.x and pos.z == dropoff.z then
-					go.goto(nil,nil,pos.z+1) -- don't break fuel chest
-				end
 				go.goto(shaft.x,65,shaft.z+2) -- attempt to prevent turtles breaking eachother by having turtles use different Y levels
 				go.goto(nil,64,nil)
 				config.set("state","mining")
