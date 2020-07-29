@@ -326,7 +326,7 @@ function goto(x, y, z, f)
 		end
 		for i = 1, math.abs(start.x - dest.x) do
 			while not forward() do
-				--while peripheral.getType("front") == "turtle" do sleep(1) end
+				while peripheral.getType("front") == "turtle" do sleep(1) end
 				turtle.dig()
 				turtle.attack()
 			end
@@ -337,7 +337,7 @@ function goto(x, y, z, f)
 		end
 		for i = 1, math.abs(start.z - dest.z) do
 			while not forward() do
-				--while peripheral.getType("front") == "turtle" do sleep(1) end
+				while peripheral.getType("front") == "turtle" do sleep(1) end
 				turtle.dig()
 				turtle.attack()
 			end
